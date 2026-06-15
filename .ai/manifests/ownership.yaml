@@ -1,0 +1,31 @@
+domains:
+  - name: spec
+    owner: '@rockacola'
+    paths:
+      - spec/
+  - name: templates
+    owner: '@rockacola'
+    paths:
+      - templates/
+  - name: bootstrap
+    owner: '@rockacola'
+    paths:
+      - bootstrap/
+  - name: standards
+    owner: '@rockacola'
+    paths:
+      - standards/
+  - name: examples
+    owner: '@rockacola'
+    paths:
+      - examples/
+  - name: migration-guides
+    owner: '@rockacola'
+    paths:
+      - migration-guides/
+  - name: foundation-config
+    owner: '@rockacola'
+    paths:
+      - .ai/
+      - AGENTS.md
+      - .aiignore

@@ -1,0 +1,22 @@
+# Secrets and credentials
+.env*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor state
+.vscode/settings.json
+.idea/

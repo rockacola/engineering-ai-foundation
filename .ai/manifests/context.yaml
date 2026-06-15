@@ -1,0 +1,11 @@
+contexts:
+  - path: .ai/context/product.md
+    description: Purpose, users, and goals of the Engineering AI Foundation
+    tags:
+      - product
+      - overview
+  - path: .ai/context/architecture.md
+    description: Repository structure, components, and conventions
+    tags:
+      - architecture
+      - structure
