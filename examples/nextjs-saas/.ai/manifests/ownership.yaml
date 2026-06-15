@@ -1,0 +1,16 @@
+domains:
+  - name: frontend
+    owner: '@acme/frontend-team'
+    paths:
+      - app/
+      - components/
+  - name: backend
+    owner: '@acme/backend-team'
+    paths:
+      - app/api/
+      - lib/
+  - name: data
+    owner: '@acme/backend-team'
+    paths:
+      - lib/db/
+      - prisma/

@@ -1,0 +1,18 @@
+domains:
+  - name: api
+    owner: '@acme/platform-team'
+    paths:
+      - packages/api/
+  - name: web
+    owner: '@acme/frontend-team'
+    paths:
+      - packages/web/
+  - name: shared
+    owner: '@acme/platform-team'
+    paths:
+      - packages/shared/
+  - name: infra
+    owner: '@acme/platform-team'
+    paths:
+      - infra/
+      - .github/

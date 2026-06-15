@@ -1,0 +1,11 @@
+id: task-001
+title: Add --dry-run flag to migrate command
+status: pending
+agent: implementer
+created_at: 2024-03-01T09:00:00Z
+description: |
+  Add a --dry-run flag to the migrate command that prints the SQL for pending
+  migrations without executing them. Useful for reviewing migrations before
+  applying to production.
+depends_on: []
+output: null

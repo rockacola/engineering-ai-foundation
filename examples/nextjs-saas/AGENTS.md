@@ -1,0 +1,50 @@
+# AI Bootstrap
+
+This file is the mandatory entry point for all AI systems operating in this repository.
+Load this file first before any other context.
+
+## Load Order
+
+1. Standards — `.ai/standards/`
+2. Context — `.ai/context/` (follow sequence in `.ai/manifests/context.yaml`)
+3. Memory — `.ai/memory/`
+4. Tasks — `.ai/tasks/active/` (active and blocked tasks; completed tasks are archived in `.ai/tasks/completed/`)
+
+## Rules
+
+- Follow spec strictly. No structural invention.
+- Do not create files not defined in `spec/file-schemas.yaml`.
+- Do not activate agents not listed in `.ai/manifests/agents.yaml`.
+- Use `.ai/manifests/context.yaml` to determine which context files to load and in what order.
+- Record all decisions in `.ai/journal/{YYYY}/{today}.md`.
+- All architectural decisions require an ADR in `docs/adr/`.
+- Do not modify `.ai/manifests/foundation.yaml` after initial setup.
+
+## Active Agents
+
+See `.ai/manifests/agents.yaml`.
+
+## Ownership
+
+See `.ai/manifests/ownership.yaml`.
+
+## Foundation Version
+
+See `.ai/manifests/foundation.yaml`. Rules in this file follow the spec version recorded there. On upgrade, replace this file with the version from the new foundation release.
+
+## Project-Specific Rules
+
+- Server Components are the default. Opt into Client Components only when browser APIs or interactivity are required.
+- No business logic in API route handlers — delegate to `lib/` service functions.
+- All API route inputs must be validated with Zod before any logic runs.
+- All database access must go through Prisma — no raw SQL.
+- No sensitive data in Client Components or client-side code.
+
+## Git
+
+- **Never commit without explicit instruction from the operator.** Stage changes, show a `git diff --stat` summary, and wait for confirmation before creating a commit.
+- Commit message format: single-line conventional commits, no body.
+- Permitted types: `feat`, `fix`, `docs`, `refactor`, `chore`, `test`
+- Example: `feat: add email notification on task assignment`
+- Never add `Co-Authored-By` to commit messages.
+- When changing code, update relevant documentation in the same commit. Do not leave docs out of sync with the implementation.

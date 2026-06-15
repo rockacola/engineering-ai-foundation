@@ -1,0 +1,6 @@
+domains:
+  - name: tool
+    owner: 'platform@acme.com'
+    paths:
+      - src/
+      - scripts/

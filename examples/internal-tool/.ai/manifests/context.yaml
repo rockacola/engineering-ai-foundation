@@ -1,0 +1,7 @@
+contexts:
+  - path: .ai/context/product.md
+    description: Tool purpose, users, and operational goals
+    tags: [product]
+  - path: .ai/context/architecture.md
+    description: Technical design, dependencies, and deployment model
+    tags: [architecture]

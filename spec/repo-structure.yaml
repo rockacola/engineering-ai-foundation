@@ -1,0 +1,40 @@
+version: 1.0.0
+
+folders:
+  required:
+    - .ai/manifests
+    - .ai/agents
+    - .ai/context
+    - .ai/standards
+    - .ai/skills
+    - .ai/memory
+    - .ai/journal
+    - .ai/tasks
+    - .ai/tasks/active
+    - .ai/tasks/completed
+    - .ai/tasks/templates
+  optional:
+    - .ai/archive
+    - docs/adr
+    - docs/architecture
+    - docs/onboarding
+    - docs/product
+
+required_files:
+  - AGENTS.md
+  - README.md
+  - .aiignore
+
+conventions:
+  file_naming: kebab-case
+  folder_naming: kebab-case
+  manifest_extension: .yaml
+  context_extension: .md
+  journal_extension: .md
+  task_extension: .yaml
+
+enforcement:
+  unknown_folders: warn
+  unknown_files_in_ai: error
+  missing_required_folders: error
+  missing_required_files: error

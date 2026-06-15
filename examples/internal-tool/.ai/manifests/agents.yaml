@@ -1,0 +1,10 @@
+active_agents:
+  - implementer
+  - reviewer
+
+disabled_agents:
+  - planner
+  - architect
+  - qa
+  - docs
+  - release

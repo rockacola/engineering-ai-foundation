@@ -1,0 +1,8 @@
+active_agents:
+  - planner
+  - architect
+  - implementer
+  - reviewer
+  - qa
+  - docs
+  - release

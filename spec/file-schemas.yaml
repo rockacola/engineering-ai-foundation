@@ -1,0 +1,108 @@
+version: 1.0.0
+
+schemas:
+  product_md:
+    path: .ai/context/product.md
+    sections:
+      - Purpose
+      - Users
+      - Core Features
+      - Non Goals
+      - Dependencies
+      - Success Metrics
+
+  architecture_md:
+    path: .ai/context/architecture.md
+    sections:
+      - System Overview
+      - Components
+      - Data Flow
+      - External Services
+      - Deployment Model
+      - Constraints
+
+  agent_md:
+    path: .ai/agents/{agent-name}.md
+    required_fields:
+      - role
+      - responsibilities
+      - inputs
+      - outputs
+      - constraints
+
+  adr_md:
+    path: docs/adr/{id}-{title}.md
+    sections:
+      - Status
+      - Context
+      - Decision
+      - Consequences
+    status_values:
+      - proposed
+      - accepted
+      - deprecated
+      - superseded
+
+  task_yaml:
+    paths:
+      active: .ai/tasks/active/{id}.yaml
+      completed: .ai/tasks/completed/{id}.yaml
+      templates: .ai/tasks/templates/{name}.yaml
+    lifecycle:
+      created_in: active
+      done_moves_to: completed
+      cancelled_moves_to: completed
+    required_fields:
+      - id
+      - title
+      - status
+      - agent
+      - created_at
+    optional_fields:
+      - description
+      - depends_on
+      - output
+    status_values:
+      - pending
+      - in-progress
+      - blocked
+      - done
+      - cancelled
+
+  journal_md:
+    path: .ai/journal/{YYYY}/{date}.md
+    date_format: YYYY-MM-DD
+    sections:
+      - Summary
+      - Changes Made
+      - Decisions
+      - Open Questions
+
+  memory_md:
+    files:
+      - .ai/memory/lessons-learned.md
+      - .ai/memory/known-issues.md
+      - .ai/memory/tribal-knowledge.md
+    required_frontmatter:
+      - last_updated
+    sections:
+      - Summary
+      - Key Facts
+      - References
+
+  skill_md:
+    path: .ai/skills/{skill-name}.md
+    required_fields:
+      - trigger
+      - steps
+    sections:
+      - Trigger
+      - Steps
+      - Examples
+
+  standard_md:
+    path: .ai/standards/{domain}.md
+    sections:
+      - Rules
+      - Rationale
+      - Examples

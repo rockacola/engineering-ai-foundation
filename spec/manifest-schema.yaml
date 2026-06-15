@@ -1,0 +1,74 @@
+version: 1.0.0
+
+manifests:
+  foundation_manifest:
+    path: .ai/manifests/foundation.yaml
+    required_fields:
+      - foundation_version
+      - applied_at
+      - repo_type
+    schema:
+      foundation_version:
+        type: string
+        pattern: "\\d+\\.\\d+\\.\\d+"
+      applied_at:
+        type: string
+        format: iso8601
+      repo_type:
+        type: string
+        enum:
+          - new
+          - migrated
+          - audited
+
+  context_manifest:
+    path: .ai/manifests/context.yaml
+    required_fields:
+      - contexts
+    description: >
+      contexts is an ordered list. AI systems load context files in list sequence.
+      Do not add a separate load_order field — sequence is determined by list position.
+    schema:
+      contexts:
+        type: list
+        ordered: true
+        items:
+          path:
+            type: string
+          description:
+            type: string
+          tags:
+            type: list
+            items: string
+
+  ownership_manifest:
+    path: .ai/manifests/ownership.yaml
+    required_fields:
+      - domains
+    schema:
+      domains:
+        type: list
+        items:
+          name:
+            type: string
+          owner:
+            type: string
+            pattern: '^(@[a-zA-Z0-9_-]+(/[a-zA-Z0-9_-]+)?|[^@\s]+@[^@\s]+\.[^@\s]+)$'
+            description: >
+              GitHub handle for an individual (@username) or team (@org/team-name),
+              or an email address. Examples: @acme/backend-team, alice@example.com
+          paths:
+            type: list
+            items: string
+
+  agents_manifest:
+    path: .ai/manifests/agents.yaml
+    required_fields:
+      - active_agents
+    schema:
+      active_agents:
+        type: list
+        items: string
+      disabled_agents:
+        type: list
+        items: string

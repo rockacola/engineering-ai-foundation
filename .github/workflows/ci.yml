@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  format:
+    name: Format check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx prettier --check "**/*.{md,yaml}"
+
+  validate-yaml:
+    name: Validate YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all spec, template, and example YAML files parse as valid YAML
+        run: |
+          find spec templates examples -name '*.yaml' | while read f; do
+            python3 -c "import yaml; yaml.safe_load(open('$f'))" || { echo "FAIL: $f"; exit 1; }
+            echo "OK: $f"
+          done

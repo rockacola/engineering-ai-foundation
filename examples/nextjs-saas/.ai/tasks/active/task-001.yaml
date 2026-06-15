@@ -1,0 +1,11 @@
+id: task-001
+title: Send email notification on task assignment
+status: pending
+agent: implementer
+created_at: 2024-01-15T09:00:00Z
+description: |
+  When a task is assigned to a team member, send a transactional email
+  via Resend notifying them of the assignment. The email should include
+  the task title, the assigner's name, and a link to the task.
+depends_on: []
+output: null

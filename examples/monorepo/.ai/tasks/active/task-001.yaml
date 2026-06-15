@@ -1,0 +1,11 @@
+id: task-001
+title: Add pagination to GET /deployments endpoint
+status: pending
+agent: implementer
+created_at: 2024-02-01T10:00:00Z
+description: |
+  The GET /deployments endpoint currently returns all records. Add cursor-based
+  pagination with a default page size of 25. Update the shared response type
+  in packages/shared/ to include pagination metadata.
+depends_on: []
+output: null

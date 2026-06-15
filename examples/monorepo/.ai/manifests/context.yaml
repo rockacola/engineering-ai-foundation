@@ -1,0 +1,7 @@
+contexts:
+  - path: .ai/context/product.md
+    description: Platform purpose, users, and success metrics
+    tags: [product]
+  - path: .ai/context/architecture.md
+    description: Monorepo structure, package responsibilities, and cross-package conventions
+    tags: [architecture]

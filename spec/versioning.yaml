@@ -1,0 +1,41 @@
+version: 1.0.0
+
+scheme: semver
+
+breaking_changes:
+  description: Increment major version. Existing repos require a migration guide in migration-guides/.
+  examples:
+    - Removing a required field from any schema in file-schemas.yaml or manifest-schema.yaml
+    - Renaming a required folder in repo-structure.yaml
+    - Removing an agent from agent-registry.yaml
+    - Changing an enforcement rule from recommended to blocking
+    - Renaming a required section in any file schema
+
+non_breaking_changes:
+  description: Increment minor version. Existing repos remain valid without migration.
+  examples:
+    - Adding optional fields to existing schemas
+    - Adding new agents to agent-registry.yaml
+    - Adding new schemas to file-schemas.yaml
+    - Adding new enforcement rules at recommended severity
+    - Adding new bootstrap workflows
+
+patches:
+  description: Increment patch version. No schema changes.
+  examples:
+    - Correcting documentation or rationale text
+    - Fixing typos in spec files
+    - Adding or updating examples
+
+upgrade_process:
+  step_1: Read foundation_version from .ai/manifests/foundation.yaml in the target repo
+  step_2: Find the appropriate guide at migration-guides/{from}-to-{to}.md
+  step_3: Follow the guide — it will call bootstrap/upgrade-existing-project.md internally
+  step_4: Run bootstrap/audit-project.md to confirm zero errors
+  step_5: Update foundation_version in .ai/manifests/foundation.yaml to the new version
+
+repo_version_discovery:
+  description: >
+    Repos discover new foundation versions by checking the releases on the
+    engineering-ai-foundation repository. Each release tag corresponds to a
+    spec version. No automated notification is provided — adoption is opt-in.

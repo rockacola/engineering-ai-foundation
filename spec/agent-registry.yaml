@@ -1,0 +1,98 @@
+version: 1.0.0
+
+agents:
+  planner:
+    description: Decomposes goals into tasks and sequences work
+    inputs:
+      - project description
+      - existing tasks
+      - constraints
+    outputs:
+      - task list (.ai/tasks/active/)
+      - dependency graph
+    constraints:
+      - must not modify code
+      - must not make architectural decisions
+      - must not create tasks outside .ai/tasks/active/
+
+  architect:
+    description: Defines system structure and technical decisions
+    inputs:
+      - product requirements
+      - constraints
+      - existing architecture
+    outputs:
+      - .ai/context/architecture.md
+      - docs/adr/*.md
+    constraints:
+      - must document all decisions as ADRs
+      - must not implement code
+      - must not modify spec files
+
+  implementer:
+    description: Writes and modifies production code
+    inputs:
+      - task specification
+      - architecture context
+      - standards
+    outputs:
+      - code changes
+      - test files
+    constraints:
+      - must follow standards in .ai/standards/
+      - must not modify spec files
+      - must not modify .ai/context/ directly
+
+  reviewer:
+    description: Reviews code and architectural changes for correctness and standard compliance
+    inputs:
+      - code diff
+      - standards
+      - task context
+    outputs:
+      - review comments
+      - approval or rejection decision
+    constraints:
+      - must reference specific standard when flagging a violation
+      - must not modify code directly
+
+  qa:
+    description: Validates functional correctness against acceptance criteria
+    inputs:
+      - implementation
+      - acceptance criteria from task
+    outputs:
+      - test results
+      - bug reports as new tasks
+    constraints:
+      - must not approve untested code
+      - must not modify source code
+
+  docs:
+    description: Generates and maintains human-readable documentation
+    inputs:
+      - code
+      - context files
+      - decisions
+    outputs:
+      - updated .ai/context/ files
+      - README changes
+      - ADRs
+    constraints:
+      - must not modify code
+      - must follow schemas in spec/file-schemas.yaml
+
+  release:
+    description: Manages versioning and release artifacts
+    inputs:
+      - completed tasks
+      - changelog
+      - qa sign-off
+    outputs:
+      - version bump
+      - release notes
+      - CHANGELOG entry
+    constraints:
+      - must not release without explicit qa sign-off
+      - must follow semantic versioning
+      - must not alter task history

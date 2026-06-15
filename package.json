@@ -1,0 +1,12 @@
+{
+  "name": "engineering-ai-foundation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "npm run format",
+    "format": "prettier --write \"**/*.{md,yaml}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
