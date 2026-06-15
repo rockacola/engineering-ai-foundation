@@ -1,0 +1,92 @@
+version: 1.0.0
+
+# Versioning policy
+
+versioning:
+  scheme: semver
+
+  breaking_changes:
+    description: Increment major version. Existing repos require a migration guide in migration-guides/.
+    examples:
+      - Removing a required field from any schema in file-schemas.yaml or manifest-schema.yaml
+      - Renaming a required folder in repo-structure.yaml
+      - Removing an agent from agent-registry.yaml
+      - Changing an enforcement rule from recommended to blocking
+      - Renaming a required section in any file schema
+
+  non_breaking_changes:
+    description: Increment minor version. Existing repos remain valid without migration.
+    examples:
+      - Adding optional fields to existing schemas
+      - Adding new agents to agent-registry.yaml
+      - Adding new schemas to file-schemas.yaml
+      - Adding new enforcement rules at recommended severity
+      - Adding new bootstrap workflows
+
+  patches:
+    description: Increment patch version. No schema changes.
+    examples:
+      - Correcting documentation or rationale text
+      - Fixing typos in spec files
+      - Adding or updating examples
+
+  upgrade_process:
+    step_1: Read foundation_version from .ai/manifests/foundation.yaml in the target repo
+    step_2: Find the appropriate guide at migration-guides/{from}-to-{to}.md
+    step_3: Follow the guide — it will call bootstrap/upgrade-existing-project.md internally
+    step_4: Run bootstrap/audit-project.md to confirm zero errors
+    step_5: Update foundation_version in .ai/manifests/foundation.yaml to the new version
+
+  repo_version_discovery:
+    description: >
+      Repos discover new foundation versions by checking the releases on the
+      engineering-ai-foundation repository. Each release tag corresponds to a
+      spec version. No automated notification is provided — adoption is opt-in.
+
+# Migration execution rules
+
+migration:
+  rules:
+    - id: preserve_existing_data
+      description: Never delete or overwrite existing files without archiving first
+      enforcement: blocking
+
+    - id: map_to_new_structure
+      description: All existing content must be explicitly mapped to the target structure before migration begins
+      enforcement: blocking
+
+    - id: never_delete_without_archive
+      description: Files to be removed must be moved to .ai/archive/ preserving their original relative path
+      enforcement: blocking
+
+    - id: generate_migration_report
+      description: A migration-report.md must be generated at repo root documenting every file moved, renamed, or deleted
+      enforcement: blocking
+
+    - id: require_human_approval
+      description: Human must explicitly approve the mapping plan before any destructive changes are applied
+      enforcement: blocking
+
+    - id: validate_after_migration
+      description: Run audit-project after migration completes; include results in migration report
+      enforcement: recommended
+
+    - id: preserve_git_history
+      description: Use git mv for file moves to preserve history where possible
+      enforcement: recommended
+
+    - id: no_content_invention
+      description: Migration must move and map existing content only; AI must not generate new content during migration
+      enforcement: blocking
+
+  archive:
+    path: .ai/archive/
+    naming: '{original_path_with_slashes_as_dashes}_{YYYYMMDDTHHmmssZ}'
+    report_file: migration-report.md
+    report_sections:
+      - Summary
+      - Files Moved
+      - Files Archived
+      - Files Created
+      - Validation Results
+      - Pending Human Decisions

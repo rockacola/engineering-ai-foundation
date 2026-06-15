@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 
 ---
 
+## [1.0.1] — 2026-06-16
+
+### Changed
+
+- Merged `spec/versioning.yaml` and `spec/migration-rules.yaml` into `spec/governance.yaml` — same content, one fewer file to load
+- Removed `templates/.ai/standards/coding.md`, `testing.md`, `security.md` — drifted copies; bootstrap step 7a copies from `standards/` directly
+- Removed redundant `.gitkeep` files from `templates/.ai/skills/` and `templates/.ai/memory/` (directories have real content)
+- Corrected `docs/adr/0001` to accurately reflect the five active agents (not seven)
+
+---
+
 ## [1.0.0] — 2024-01-15
 
 ### Added
@@ -14,8 +25,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 - `spec/file-schemas.yaml` — schemas for all `.ai/` file types
 - `spec/manifest-schema.yaml` — schemas for all `.ai/manifests/` files
 - `spec/agent-registry.yaml` — seven defined agent roles with inputs, outputs, and constraints
-- `spec/migration-rules.yaml` — blocking and recommended rules for repo migration
-- `spec/versioning.yaml` — semver scheme with breaking/non-breaking/patch classification
+- `spec/governance.yaml` — semver versioning policy and migration execution rules
 - `templates/` — ready-to-copy scaffold for new repositories
 - `bootstrap/create-new-project.md` — workflow for scaffolding a new repo
 - `bootstrap/audit-project.md` — read-only validation workflow

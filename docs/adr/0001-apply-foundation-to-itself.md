@@ -12,7 +12,7 @@ The Engineering AI Foundation defines a standard operating structure for AI syst
 
 Bootstrap the foundation repo using its own spec and bootstrap workflow (`bootstrap/create-new-project.md` adapted for `repo_type: migrated`). This creates the full `.ai/` structure, `AGENTS.md`, `.aiignore`, manifests, context files, and agent definitions within this repository.
 
-All seven agents from `spec/agent-registry.yaml` are activated, since maintaining the foundation requires the full range: planning spec changes, making architectural decisions, implementing updates, reviewing changes, validating correctness, keeping docs current, and managing releases.
+Five of the seven registered agents are activated: `architect`, `implementer`, `reviewer`, `docs`, and `release`. `planner` is omitted because this repo rarely has enough parallel work to warrant formal task decomposition. `qa` is omitted because validation here is running `audit-project.md` inline — reviewer and implementer handle that without a dedicated agent.
 
 ## Consequences
 

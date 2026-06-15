@@ -12,7 +12,7 @@ Example: `1.0.0-to-2.0.0.md`
 
 ## When a guide is required
 
-A migration guide is required whenever the foundation version bump is **major** (breaking change). See `spec/versioning.yaml` for the definition of breaking vs. non-breaking changes.
+A migration guide is required whenever the foundation version bump is **major** (breaking change). See `spec/governance.yaml` for the definition of breaking vs. non-breaking changes.
 
 Minor and patch upgrades do not require a guide — existing repos remain valid without migration.
 

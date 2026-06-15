@@ -4,7 +4,7 @@
 
 ## Spec Impact Checklist
 
-- [ ] Does this change any schema in `spec/`? If yes, does it require a major, minor, or patch version bump? (See `spec/versioning.yaml`)
+- [ ] Does this change any schema in `spec/`? If yes, does it require a major, minor, or patch version bump? (See `spec/governance.yaml`)
 - [ ] If this is a breaking change (major bump), is a migration guide added to `migration-guides/`?
 - [ ] If this adds a required field or folder, does the `templates/` directory reflect the change?
 - [ ] If this modifies `spec/file-schemas.yaml`, are example files in `examples/` still valid?

@@ -18,9 +18,9 @@ target_foundation_version: 1.0.0
 
 ### Step 1 — Load spec
 
-Load `spec/repo-structure.yaml`, `spec/file-schemas.yaml`, `spec/manifest-schema.yaml`, `spec/migration-rules.yaml`.
+Load `spec/repo-structure.yaml`, `spec/file-schemas.yaml`, `spec/manifest-schema.yaml`, `spec/governance.yaml`.
 
-All migration behaviour in subsequent steps is governed by the rules in `spec/migration-rules.yaml`. The blocking rules there take precedence over any local judgement call.
+All migration behaviour in subsequent steps is governed by the rules in `spec/governance.yaml` under `migration.rules`. The blocking rules there take precedence over any local judgement call.
 
 ---
 

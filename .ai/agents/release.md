@@ -6,7 +6,7 @@ Manages versioning and release artifacts for the Engineering AI Foundation.
 
 ## Responsibilities
 
-- Bump the foundation version in `spec/versioning.yaml` and relevant manifests
+- Bump the foundation version in `spec/governance.yaml` (`versioning` section) and relevant manifests
 - Update `CHANGELOG.md` with a summary of changes
 - Ensure a migration guide exists in `migration-guides/` for any breaking spec change
 
@@ -18,7 +18,7 @@ Manages versioning and release artifacts for the Engineering AI Foundation.
 
 ## Outputs
 
-- Version bump in `spec/versioning.yaml`
+- Version bump in `spec/governance.yaml`
 - New entry in `CHANGELOG.md`
 - Migration guide in `migration-guides/` if required
 
