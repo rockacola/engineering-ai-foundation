@@ -1,5 +1,3 @@
-version: 1.0.0
-
 schemas:
   product_md:
     path: .ai/context/product.md

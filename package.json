@@ -1,6 +1,6 @@
 {
   "name": "engineering-ai-foundation",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "check": "npm run format",

@@ -1,3 +1,3 @@
-foundation_version: 1.0.0
+foundation_version: '{foundation_version}' # read from package.json by bootstrap
 applied_at: 'YYYY-MM-DDThh:mm:ssZ' # populated by bootstrap
 repo_type: new

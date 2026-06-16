@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 
 ---
 
+## [1.0.2] — 2026-06-16
+
+### Changed
+
+- Removed redundant `version:` header from all `spec/*.yaml` files — version is now sourced exclusively from `package.json`
+- Replaced hardcoded version literals in `bootstrap/create-new-project.md` and `bootstrap/upgrade-existing-project.md` with `{foundation_version}` placeholders
+- Updated `templates/.ai/manifests/foundation.yaml` to use `{foundation_version}` placeholder populated by bootstrap
+- Updated `examples/*/foundation.yaml` to use mock version `1.2.3` with comment, so examples never drift with releases
+- Added `# keep in sync with package.json` comment to `.ai/manifests/foundation.yaml`
+
+---
+
 ## [1.0.1] — 2026-06-16
 
 ### Changed

@@ -1,5 +1,3 @@
-version: 1.0.0
-
 agents:
   planner:
     description: Decomposes goals into tasks and sequences work

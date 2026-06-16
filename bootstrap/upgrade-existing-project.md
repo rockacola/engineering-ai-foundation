@@ -9,7 +9,7 @@ Deterministic workflow for migrating an existing repository into compliance with
 ```
 repo_path: string
 current_foundation_version: string | null
-target_foundation_version: 1.0.0
+target_foundation_version: '{foundation_version}' # read from package.json at foundation repo root
 ```
 
 ---
@@ -110,7 +110,7 @@ Copy `standards/coding.md`, `standards/testing.md`, and `standards/security.md` 
 Write `.ai/manifests/foundation.yaml`:
 
 ```yaml
-foundation_version: 1.0.0
+foundation_version: '{foundation_version}'
 applied_at: { iso8601_timestamp }
 repo_type: migrated
 ```

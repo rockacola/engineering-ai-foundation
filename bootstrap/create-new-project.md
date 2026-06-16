@@ -53,10 +53,12 @@ Do not rename any file. Do not modify any file during copy.
 
 ### Step 4 — Populate foundation manifest
 
+Read `foundation_version` from `package.json` at the foundation repo root.
+
 Write `.ai/manifests/foundation.yaml`:
 
 ```yaml
-foundation_version: 1.0.0
+foundation_version: '{foundation_version}'
 applied_at: { iso8601_timestamp }
 repo_type: new
 ```
@@ -98,7 +100,7 @@ If any errors are present, halt and report. Do not hand off to the user until au
 
 ```
 Repo scaffold complete.
-foundation_version: 1.0.0
+foundation_version: '{foundation_version}'
 folders_created: [list]
 files_created: [list]
 audit_result: passed

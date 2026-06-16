@@ -1,5 +1,3 @@
-version: 1.0.0
-
 manifests:
   foundation_manifest:
     path: .ai/manifests/foundation.yaml
