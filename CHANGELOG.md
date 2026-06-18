@@ -6,6 +6,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 
 ---
 
+## [1.1.1] — 2026-06-18
+
+### Changed
+
+- `AGENTS.md`, `templates/AGENTS.md`, `examples/*/AGENTS.md`: renamed heading from `# AI Bootstrap` to `# Agent Instructions` to better reflect the file's purpose
+
+---
+
 ## [1.1.0] — 2026-06-18
 
 ### Changed

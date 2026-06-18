@@ -1,4 +1,4 @@
-# AI Bootstrap
+# Agent Instructions
 
 This file is the mandatory entry point for all AI systems operating in this repository.
 Load this file first before any other context.
