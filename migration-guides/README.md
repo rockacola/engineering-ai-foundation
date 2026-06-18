@@ -28,6 +28,6 @@ Each guide must include:
 
 ## Current status
 
-No migration guides exist yet. The foundation is at version `1.0.0`.
+No migration guides exist yet. The foundation is at version `1.1.0`.
 
-The first guide (`1.0.0-to-2.0.0.md`) will be written when a breaking change is introduced.
+The first guide will be written when a breaking change is introduced.

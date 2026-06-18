@@ -3,6 +3,17 @@
 This file is the mandatory entry point for all AI systems operating in this repository.
 Load this file first before any other context.
 
+## Critical Rules
+
+These rules are non-negotiable and apply to every task, every session, without exception.
+
+- **Never commit without explicit instruction from the operator.** Stage changes, show a `git diff --stat` summary, and wait for confirmation. An interrupted or redirected request cancels the prior commit instruction.
+- **Never add `Co-Authored-By` to commit messages.**
+- **Never use em dashes.** Use a comma, full stop, or rewrite the sentence.
+- Commit message format: single-line conventional commits, no body. Types: `feat`, `fix`, `docs`, `refactor`, `chore`, `test`.
+
+---
+
 ## Load Order
 
 1. Standards — `.ai/standards/`
@@ -43,9 +54,4 @@ See `.ai/manifests/foundation.yaml`. Rules in this file follow the spec version 
 
 ## Git
 
-- **Never commit without explicit instruction from the operator.** Stage changes, show a `git diff --stat` summary, and wait for confirmation before creating a commit.
-- Commit message format: single-line conventional commits, no body.
-- Permitted types: `feat`, `fix`, `docs`, `refactor`, `chore`, `test`
-- Example: `feat: add pagination to deployments endpoint`
-- Never add `Co-Authored-By` to commit messages.
 - When changing code, update relevant documentation in the same commit. Do not leave docs out of sync with the implementation.

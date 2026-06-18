@@ -65,16 +65,10 @@ mapping_plan:
 
 ---
 
-### Step 5 — Human approval gate
+### Step 5 — Log mapping plan
 
-**HALT. Do not proceed.**
-
-Present the mapping plan to the human operator.
-Wait for explicit written approval before continuing.
-
-Required approval statement: `"Approved"` or equivalent explicit confirmation.
-
-Do not infer approval from silence or partial responses.
+Write the mapping plan to the migration report under `Mapping Plan`.
+Continue automatically to Step 6.
 
 ---
 
@@ -100,8 +94,9 @@ Populate templates for missing required files.
 
 Copy `standards/coding.md`, `standards/testing.md`, and `standards/security.md` from the foundation repository into `.ai/standards/`.
 
-- If a file does not exist in `.ai/standards/`: copy it.
-- If a file already exists in `.ai/standards/`: **do not overwrite** — the project may have customised it. Record the existing file as `kept` in the migration report.
+- If a file does not exist in `.ai/standards/`: copy it. Record as `created`.
+- If a file already exists in `.ai/standards/` and is identical to the foundation version: no action. Record as `unchanged`.
+- If a file already exists in `.ai/standards/` and differs from the foundation version: overwrite with the foundation version. Record as `updated`.
 
 ---
 
@@ -124,6 +119,7 @@ Write `migration-report.md` at repo root:
 Required sections:
 
 - Summary
+- Mapping Plan
 - Files Moved
 - Files Archived
 - Files Created
@@ -134,8 +130,9 @@ Required sections:
 
 ### Step 10 — Validate
 
-Run `bootstrap/audit-project.md`.
-Append audit results to migration report under `Validation Results`.
+Spawn a sub-agent with a clean context.
+Instruct it to run `bootstrap/audit-project.md` against `repo_path`.
+Append the returned audit results to the migration report under `Validation Results`.
 
 ---
 
@@ -156,6 +153,5 @@ report: migration-report.md
 ## Prohibited Actions
 
 - Do not delete any file without archiving first
-- Do not proceed past Step 5 without explicit human approval
 - Do not invent content for migrated files
 - Do not modify `spec/` files

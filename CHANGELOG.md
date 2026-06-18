@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Version
 
 ---
 
+## [1.1.0] — 2026-06-18
+
+### Changed
+
+- `bootstrap/upgrade-existing-project.md`: removed human approval gate at Step 5 -- plan is logged to migration report and execution continues automatically
+- `bootstrap/upgrade-existing-project.md`: Step 7a now overwrites existing standards files with the foundation version (previously skipped them); git diff is the review mechanism
+- `bootstrap/upgrade-existing-project.md`: Step 10 now spawns a sub-agent with clean context to run the audit, isolating it from accumulated migration context
+- `AGENTS.md`: added `Critical Rules` section at the top of the file with explicit, high-priority behavioral rules (git commit, co-authored-by, writing style)
+
+---
+
 ## [1.0.2] — 2026-06-16
 
 ### Changed
